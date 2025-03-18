@@ -32,6 +32,7 @@ export default function TicketForm({ dispatch }) {
       payload: ticketData,
     });
 
+    console.log("ticketData", ticketData);
     clearForm();
   };
 
