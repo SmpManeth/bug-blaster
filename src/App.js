@@ -4,6 +4,7 @@ import "./styles.css";
 import TicketForm from "./component/TicketForm";
 
 function App() {
+  const initialState = { tickets: [] };
   return (
     <div className="App">
       <div className="container">
