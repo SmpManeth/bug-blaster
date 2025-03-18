@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function TicketForm() {
+export default function TicketForm({ dispatch }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("1");
@@ -19,13 +19,18 @@ export default function TicketForm() {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    
+
     const ticketData = {
-        id: new Date().toISOString(),
-        title,
-        description,
-        priority,
+      id: new Date().toISOString(),
+      title,
+      description,
+      priority,
     };
+
+    dispatch({
+      type: "ADD_TICKET",
+      payload: ticketData,
+    });
 
     clearForm();
   };
@@ -70,7 +75,10 @@ export default function TicketForm() {
         ))}
       </fieldset>
 
-        <button type="submit" className="button">  Submit</button>
+      <button type="submit" className="button">
+        {" "}
+        Submit
+      </button>
     </form>
   );
 }
